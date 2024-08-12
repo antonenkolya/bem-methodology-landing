@@ -1,0 +1,81 @@
+/** Переменные для хранения размеров экранов */
+
+/** Переменные -above для Mobile First; используют условие min-width */
+/** Остальные переменные для Desktop First; используют условие max-width */
+$desktop-above: 1281px;
+$desktop: 1280px;
+
+$tablet-above: 1024px;
+$tablet: 1023px;
+
+$mobile-above: 768px;
+$mobile: 767px;
+
+$mobile-s-above: 481px;
+$mobile-s: 480px;
+
+@mixin desktop-above{
+    /** для экранов больше или равных 1281px*/
+    @media (min-width: $desktop-above){
+        @content;
+    }
+}
+
+@mixin desktop{
+    @media (max-width: $desktop){
+        @content;
+    }
+}
+
+@mixin tablet-above{
+    /** для экранов больше или равных 1024px*/
+    @media (min-width: $tablet-above){
+        @content;
+    }
+}
+
+@mixin tablet{
+    @media (max-width: $tablet){
+        @content;
+    }
+}
+
+@mixin mobile-above{
+    /** для экранов больше или равных 768px*/
+    @media (min-width: $mobile-above){
+        @content;
+    }
+}
+
+@mixin mobile{
+    @media (max-width: $mobile){
+        @content;
+    }
+}
+
+@mixin mobile-s-above{
+    /** для экранов больше или равных 481px*/
+    @media (min-width: $mobile-s-above){
+        @content;
+    }
+}
+
+@mixin mobile-s{
+    @media (max-width: $mobile-s){
+        @content;
+    }
+}
+
+@mixin hover {
+    @media (hover: hover) {
+      &:hover {
+        @content;
+      }
+    }
+  
+    @media (hover: none) {
+      &:active {
+        @content;
+      }
+    }
+  }

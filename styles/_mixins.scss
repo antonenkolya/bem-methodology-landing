@@ -1,0 +1,66 @@
+/*  Этот миксин позволяет тексту изменять 
+    свой размер в зависимости от ширины окна браузера,
+    но при этом не выходить за пределы указанных
+    минимальных и максимальных значений
+    */
+@mixin fluid-text($max: 48, $min: 16){
+    font-size: clamp(#{$min}px,  #{$max / 1440 * 100}vw, #{$max}px)
+}
+
+@mixin reset-link{
+    color: inherit; 
+
+    &,
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+@mixin reset-button{
+    padding:0;
+    background-color: transparent;
+    border: none;
+}
+
+@mixin flex-center($isInline: false){
+    @if $isInline{
+        display: inline-flex; // приоритет у элементов
+    } @else{
+        display: flex; // приоритет у контейнера
+    }
+    /** Центирование контента */
+    justify-content: center; // main axis (default - horisontal)
+    align-items: center; // cross axis
+}
+
+/**
+    Этот миксин комбинирует абсолютное позиционирование с трансформацией,
+    чтобы элемент оказался точно по центру своего родителя
+*/
+@mixin abs-center{
+    position: absolute;
+    /** Сдвиг внутри родителя */
+    top: 50%;
+    left: 50%;
+    /** Сдвиг (влево вверх) относительно своего верхнего левого угла */
+    translate: -50% -50%;
+}
+
+@mixin square($size) {
+    width: $size;
+    aspect-ratio: 1/1;
+  }
+
+/** Миксин для скрытия элемента */
+@mixin visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    border: 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+    clip-path: inset(100%) !important;
+    clip: rect(0 0 0 0) !important;
+    overflow: hidden !important;
+  }

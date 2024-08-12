@@ -1,0 +1,75 @@
+.contact-us{
+    position: relative;
+    overflow-x: hidden;
+
+    @include mobile-above{
+        padding: 68px 100px 80px;
+        background-color: var(--color-grey);
+        border-radius: var(--border-radius-large);
+    }
+
+    &::after{
+        --contactUsAfterImagePadding: 62px;
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 98.5%;
+        height: calc(
+            100% - var(--contactUsAfterImagePadding) * 2
+        );
+        translate: -50% -50%;
+        aspect-ratio: 1;
+        background: url('../../images/contact-us-bg.svg') center/contain no-repeat;
+
+        @include tablet{
+            display: none;
+        }
+
+    }
+
+    &__form, 
+    &__body{
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__request-types,
+    &__body{
+        @include mobile{
+            background-color: var(--color-grey);
+        }
+    }
+
+    &__request-types{
+        @include mobile{
+            padding: 40px 52px 36px;
+            border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
+        }
+    }
+
+    &__body{
+        @include mobile{
+            margin-bottom: 30px;
+            row-gap: 20px;
+            padding: 10px 30px 50px;
+            border-radius: 0 0 var(--border-radius-large) var(--border-radius-large);
+        }
+    }
+
+
+    &__form{               
+        
+        @include tablet-above{
+            max-width: 556px;
+        }
+
+        @include mobile-above{
+            row-gap: 40px;
+
+        }
+    }
+
+    &__body{
+        row-gap: 25px;
+    }
+}

@@ -1,0 +1,45 @@
+body{
+    @include fluid-text(18, 16);
+
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.28; // Как в Chrome
+    color: var(--color-dark);
+    background-color: var(--color-light);
+}
+
+// Для более плавного взаимодействия
+a,
+button,
+input,
+textarea,
+// Все элементы внутри SVG
+svg * {
+    transition-duration: var(--transition-duration);
+}
+
+a {
+    text-decoration: none;
+    color: inherit; // Наследуется от body
+}
+
+h1, h2, h3, h4 {
+    font-weight: 500;
+}
+
+h1, .h1 {
+    @include fluid-text(60, 43); // 60px - размер h1 для desktop, 43px - для mobile
+}
+
+h2, .h2 {
+    @include fluid-text(40, 36); 
+}
+
+h3, .h3 {
+    @include fluid-text(30, 26); 
+}
+
+h4, .h4 {
+    @include fluid-text(20, 18); 
+}

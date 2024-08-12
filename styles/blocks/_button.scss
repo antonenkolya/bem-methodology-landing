@@ -1,0 +1,32 @@
+.button{
+    @include flex-center(true);
+
+    height: var(--button-height);
+    padding-inline: 35px;
+    border: var(--border);
+    border-radius: var(--border-radius);
+    color: var(--color-light);
+    background-color: var(--color-dark);
+    font-size: 20px;
+
+
+    @include hover{
+        background-color: var(--color-accent);
+        color: var(--color-dark);
+    }
+
+    &--transparent{
+        background-color: transparent;
+        color: var(--color-dark);
+    }
+
+    &--accent{
+        background-color: var(--color-accent);
+        color: var(--color-dark);
+
+        @include hover{
+            background-color: var(--color-dark);
+            color: var(--color-accent);
+        }
+    }
+}
